@@ -1,14 +1,14 @@
 
-import { CoffeCartContainer, CoffeDescriptionContainer, CoffeElementContainer, CoffeInformationContainer, CoffePriceContainer, CoffeQuantityContainer, CoffesContainer, CoffesGridContainer, ShoppingCartContainer, TagContainer } from './styles';
+import { CoffeCartContainer, CoffeDescriptionContainer, CoffeElementContainer, CoffeInformationContainer, CoffePriceContainer, CoffesContainer, CoffesGridContainer, TagContainer } from './styles';
 import { CoffesContext } from '../../../../contexts/CoffesContext';
 import { useContext } from 'react';
-import { ShoppingCart } from 'phosphor-react';
 import { CoffeQuantity } from '../../../../components/CoffeQuantity';
 import { CoffePrice } from '../../../../components/CoffePrice';
+import { ShoppingCartLink } from '../../../../components/ShoppingCartLink';
 
 
 export function CoffesBar() {
-    const {coffesAmount, addAmountCoffe, decreaseQuantityCoffe}= useContext(CoffesContext);
+    const {coffesAmount}= useContext(CoffesContext);
     
     return(
         <CoffesContainer>
@@ -32,10 +32,11 @@ export function CoffesBar() {
                             <CoffePriceContainer>
                                 <CoffePrice coffePrice={coffe.price} fontSize="24px" />
                                 <CoffeCartContainer>
-                                    <CoffeQuantity coffe={coffe} />
-                                    <ShoppingCartContainer>
-                                        <ShoppingCart size={18} color={"white"} weight="fill" />
-                                    </ShoppingCartContainer>
+                                    <CoffeQuantity coffe={coffe} height="2rem" />
+                                    <nav>
+                                        <ShoppingCartLink size={18} backgroundColor={"white"}/>
+                                    </nav>
+
                                 </CoffeCartContainer>
                                
                             </CoffePriceContainer>

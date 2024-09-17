@@ -3,6 +3,9 @@ import { CoffesContext } from "../../contexts/CoffesContext";
 import { Trash } from "phosphor-react";
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { CheckoutContainer, CoffeElementContainer, CoffePriceElementContainer, CoffesSelectedContainer, FormContainer } from "./styles";
+import { CoffePrice } from "../../components/CoffePrice";
+import { CoffeQuantity } from "../../components/CoffeQuantity";
 
 interface CoffeDeliveryFormData {
     deliveryAddress: {
@@ -12,6 +15,10 @@ interface CoffeDeliveryFormData {
     }
 }
 
+function roundUpToTwoDecimals(value: number): number {
+    return Math.ceil(value * 100) / 100;
+}
+
 export function Checkout() {
     const coffeDeliveryForm = useForm();
     const {coffesAmount, addAmountCoffe, decreaseQuantityCoffe, removeCoffe}= useContext(CoffesContext);
@@ -19,8 +26,8 @@ export function Checkout() {
     const coffesTotal = coffesWithQuantity.reduce((acc, coffe) => acc + (coffe.quantity * coffe.price), 0); 
     const deliveryValue = 3.50;
     return (
-        <div>
-            <div>
+        <CheckoutContainer>
+            <FormContainer>
                 <h3>Complete seu pedido</h3>
                
                 <form action="">
@@ -58,41 +65,33 @@ export function Checkout() {
 
 
                 </form>
-            </div>
-            <div>
-                
-        
+            </FormContainer>
+            <CoffesSelectedContainer>
                 {coffesWithQuantity.map((coffe) => {
-                    return (
-                        <div key={coffe.name}>
+                return (
+                    <CoffePriceElementContainer key={coffe.name}>
+                        <CoffeElementContainer>
                             <img src={coffe.src} alt="" />
-                            <div>
+                            <div className="title_quantity">
                                 <span>{coffe.name}</span>
-                                <div>
-                                    <button onClick={(event) => decreaseQuantityCoffe(event, coffe)}>
-                                        <span>-</span>
-                                    </button>
-                                    <span>{coffe.quantity}</span>
-                                    <button onClick={(event) => addAmountCoffe(event,coffe)}>
-                                        <span>+</span>
+                                <div className="quantity">
+                                    <CoffeQuantity coffe={coffe} height={'2rem'}/>
+                                    <button className="button_remove" onClick={(event) => removeCoffe(event, coffe)}>
+                                        <Trash size={16}/>
+                                        <span>REMOVER</span>
                                     </button>
                                 </div>
-                                <button onClick={(event) => removeCoffe(event, coffe)}>
-                                    <Trash size={16}/>
-                                    <span>REMOVER</span>
-                                </button>
                             </div>
-                            <div>
-                                <span>{coffe.quantity * coffe.price}</span>
-                            </div>
-                        </div>
+                        </CoffeElementContainer>
+                       
+                        <CoffePrice coffePrice={roundUpToTwoDecimals(coffe.quantity * coffe.price)} fontSize="16px" />
+                    </CoffePriceElementContainer>
                     );
                 })}
-
                 <div>
                     <div>
                         <span>Total de itens</span>
-                        <span>{coffesTotal}</span>
+                        <span>{roundUpToTwoDecimals(coffesTotal)}</span>
                     </div>
                     <div>
                         <span>Entrega</span>
@@ -101,7 +100,7 @@ export function Checkout() {
 
                     <div>
                         <span>Total</span>
-                        <span>{coffesTotal + deliveryValue}</span>
+                        <span>{roundUpToTwoDecimals(coffesTotal + deliveryValue)}</span>
                     </div>
 
                     <NavLink to="/success">
@@ -110,8 +109,8 @@ export function Checkout() {
                 </div>
 
 
-            </div>
-        </div>
+            </CoffesSelectedContainer>
+        </CheckoutContainer>
 
     )
 }

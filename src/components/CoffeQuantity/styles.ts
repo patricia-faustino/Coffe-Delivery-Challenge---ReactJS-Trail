@@ -1,14 +1,17 @@
 import { styled } from "styled-components";
 
-export const CoffeQuantityContainer = styled.div`
+interface CoffeQuantityContainerProps {
+    height: string;
+}
+
+export const CoffeQuantityContainer = styled.div<CoffeQuantityContainerProps>`
     display: flex;
     gap: 0.25rem;
     align-items: center;
     justify-content: center;
     background-color: ${(props) => props.theme['base-button']};
     width: 4.5rem;
-    height: 2.375rem;
-
+    height: ${(props) => props.height};
     border-radius: 6px;
 
     .coffeQuantity {
@@ -17,7 +20,6 @@ export const CoffeQuantityContainer = styled.div`
         font-weight: bold;
         text-align: end;
     }
-
 
     button {
         border: none;

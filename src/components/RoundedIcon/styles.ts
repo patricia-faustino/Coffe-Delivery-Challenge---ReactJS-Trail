@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-const STATUS_COLOR = {
+export const STATUS_COLOR = {
     yellowDark: 'yellow-dark',
     yellow: 'yellow',
     baseText: 'base-text',
     purple: 'purple',
+    white: 'white'
 
 } as const;
 

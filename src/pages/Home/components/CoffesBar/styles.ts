@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -85,6 +86,15 @@ export const CoffePriceContainer = styled.div`
     align-items: end;
     margin-top: 1rem;
 
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        width: 2.375rem;
+        background-color: ${(props) => props.theme['purple']};
+    }
+
 `;
 
 export const CoffeQuantityContainer = styled.div`
@@ -122,17 +132,7 @@ export const CoffeQuantityContainer = styled.div`
     }
 `;
 
-export const ShoppingCartContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    width: 2.375rem;
-    background-color: ${(props) => props.theme['purple']};
-`;
-
 export const CoffeCartContainer = styled.div`
     display: flex;
     gap: 0.5rem;
-  
-`
+`;

@@ -38,11 +38,6 @@ export const ActionsContainer = styled.div`
         background-color: ${(props) => props.theme['yellow-light']};
         position: relative; /* Necessário para posicionamento absoluto do círculo */
 
-
-        svg {
-            color: ${(props) => props.theme['yellow-dark']};
-        }
-
         span {
             width: 1.25rem;
             height: 1.25rem;

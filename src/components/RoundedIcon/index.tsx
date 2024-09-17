@@ -1,4 +1,4 @@
-import { IconProps, IconWeight } from "phosphor-react";
+import { IconProps } from "phosphor-react";
 import { IconContainer, StatusProps } from "./styles";
 
 interface RoundedIconProps extends IconProps, StatusProps {

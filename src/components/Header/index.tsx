@@ -4,6 +4,7 @@ import { MapPin, ShoppingCart } from "phosphor-react";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { CoffesContext } from "../../contexts/CoffesContext";
+import { ShoppingCartLink } from "../ShoppingCartLink";
 
 export function Header() {
     const { coffesAmount } = useContext(CoffesContext);
@@ -22,9 +23,7 @@ export function Header() {
                 </div>
                 <nav>
                     <span>{totalQuantity}</span>
-                    <NavLink to="/checkout" title="Carrinho">
-                        <ShoppingCart size={22} weight="fill" />
-                    </NavLink>
+                    <ShoppingCartLink size={22} backgroundColor={"yellowDark"}/>
                 </nav>
             </ActionsContainer>
            

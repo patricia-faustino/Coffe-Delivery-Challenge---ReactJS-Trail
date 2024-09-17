@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 
 interface CoffeQuantityContainerProps {
     fontSize: string;
+    fontSizeBefore: string;
 }
 
 export const CoffePriceContainer = styled.span<CoffeQuantityContainerProps>`
