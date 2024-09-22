@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { CoffeCardContainer } from "../../../../styles/basics";
 
 
 export const CoffesContainer= styled.div`
@@ -18,13 +18,9 @@ export const CoffesGridContainer = styled.div`
     row-gap: 2.5rem;
 `;
 
-export const CoffeElementContainer = styled.div`
+export const CoffeElementContainer = styled(CoffeCardContainer)`
     width: 16rem;
     height: 19.38rem;
-
-    border-radius: 6px 36px 6px 36px;
-    background-color: ${(props) => props.theme['base-card']};
-
     position: relative;
 
     img {

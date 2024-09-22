@@ -30,7 +30,13 @@ export function CoffesBar() {
                                 <p>{coffe.description}</p>
                             </CoffeDescriptionContainer>
                             <CoffePriceContainer>
-                                <CoffePrice coffePrice={coffe.price} fontSize="24px" />
+                                <CoffePrice
+                                    coffePrice={coffe.price}
+                                    fontSize="24px"
+                                    fontSizeBefore="14px"
+                                    fontWeigth="bold"
+                                    fontWeigthBefore="normal"
+                                />
                                 <CoffeCartContainer>
                                     <CoffeQuantity coffe={coffe} height="2rem" />
                                     <nav>

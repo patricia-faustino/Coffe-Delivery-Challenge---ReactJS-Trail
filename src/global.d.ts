@@ -23,6 +23,4 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: 400;
         font-size: 1rem;
     }
-
-
 `;

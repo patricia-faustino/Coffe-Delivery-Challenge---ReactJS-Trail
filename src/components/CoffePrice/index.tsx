@@ -1,13 +1,12 @@
-import { CoffePriceContainer } from "./styles";
+import { CoffePriceContainer, CoffeQuantityContainerProps } from "./styles";
 
-interface CoffePriceProps {
+interface CoffePriceProps extends CoffeQuantityContainerProps {
     coffePrice: number;
-    fontSize: string;
 }
 
-export function CoffePrice({coffePrice, fontSize}: CoffePriceProps) {
+export function CoffePrice({coffePrice, fontSize, fontWeigth, fontSizeBefore, fontWeigthBefore}: CoffePriceProps) {
     return (
-        <CoffePriceContainer fontSize={fontSize}>
+        <CoffePriceContainer fontSize={fontSize} fontWeigth={fontWeigth} fontSizeBefore={fontSizeBefore} fontWeigthBefore={fontWeigthBefore}>
             {coffePrice}
         </CoffePriceContainer>
     );

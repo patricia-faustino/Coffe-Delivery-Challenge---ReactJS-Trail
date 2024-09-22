@@ -1,19 +1,21 @@
 import { styled } from "styled-components";
 
-interface CoffeQuantityContainerProps {
+export interface CoffeQuantityContainerProps {
     fontSize: string;
     fontSizeBefore: string;
+    fontWeigth: string;
+    fontWeigthBefore: string;
 }
 
 export const CoffePriceContainer = styled.span<CoffeQuantityContainerProps>`
     color: ${(props) => props.theme['base-text']};
     font-family: 'Baloo2', sans-serif;
     font-size: ${(props) => props.fontSize};
-    font-weight: bold;
+    font-weight:  ${(props) => props.fontWeigth};
 
     &::before {
         content: 'R$ ';
-        font-size: 14px;
-        font-weight: normal;
+        font-size:  ${(props) => props.fontSizeBefore};
+        font-weight: ${(props) => props.fontWeigthBefore};
     }
 `;
