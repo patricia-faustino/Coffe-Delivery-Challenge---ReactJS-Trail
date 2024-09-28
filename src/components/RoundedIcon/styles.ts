@@ -10,7 +10,7 @@ export const STATUS_COLOR = {
 } as const;
 
 export interface StatusProps {
-    backgroundColor: keyof typeof STATUS_COLOR;
+    backgroundcolor: keyof typeof STATUS_COLOR;
 };
 
 export const IconContainer = styled.div<StatusProps>`
@@ -21,5 +21,5 @@ export const IconContainer = styled.div<StatusProps>`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${(props) => props.theme[STATUS_COLOR[props.backgroundColor]]};
+    background-color: ${(props) => props.theme[STATUS_COLOR[props.backgroundcolor]]};
 `;

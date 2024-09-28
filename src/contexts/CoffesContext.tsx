@@ -1,4 +1,5 @@
-import { createContext, MouseEventHandler, ReactNode, useReducer } from "react";
+import { createContext, 
+    ReactNode, useReducer } from "react";
 import ExpressoTradicional from '../assets/expresso.svg';
 import ExpressoAmericano from '../assets/expresso_americano.svg';
 import ExpressoCremoso from '../assets/expresso_cremoso.svg';
@@ -13,7 +14,9 @@ import Cubano from '../assets/cubano.svg';
 import Havaiano from '../assets/havaiano.svg';
 import Arabe from '../assets/arabe.svg';
 import Irlandes from '../assets/irlandes.svg';
-import { produce } from "immer";
+import { useForm, UseFormHandleSubmit, UseFormRegister, UseFormReset, UseFormSetValue, UseFormWatch } from "react-hook-form";
+import { coffeReducer } from "../reducers/coffes/reducer";
+import { addAmountCoffeAction, decreaseQuantityCoffeAction, removeAllCoffeAction, removeCoffeAction } from "../reducers/coffes/action";
 
 
 export interface Coffe {
@@ -38,9 +41,15 @@ interface CoffesContextProviderProps {
 }
 
 interface CoffesContextType extends CoffesState {
+    handleSubmit: UseFormHandleSubmit<CoffeDeliveryFormData, undefined>;
+    watch: UseFormWatch<CoffeDeliveryFormData>;
+    reset: UseFormReset<CoffeDeliveryFormData>;
+    register: UseFormRegister<CoffeDeliveryFormData>;
+    setValue: UseFormSetValue<CoffeDeliveryFormData>;
     addAmountCoffe: ( event: React.MouseEvent<HTMLButtonElement, MouseEvent>, coffe: Coffe) => void;
     removeCoffe: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, coffe: Coffe) => void;
     decreaseQuantityCoffe: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, coffe: Coffe) => void;
+    removeAllCoffe: () => void;
 }
 
 export const CoffesContext = createContext({} as CoffesContextType);
@@ -167,45 +176,44 @@ const coffesAmountInitial : CoffeAmount[] = [
     }
 ]
 
+export type PaymentMethod = 'credit' | 'debit' | 'money' | '';
+
+export interface CoffeDeliveryFormData {
+    deliveryAddress: {
+        cep: string;
+        street: string;
+        numberAddress: string;
+        addressComplement: string;
+        neighborhood: string;
+        city: string;
+        UF: string;
+    },
+    payment: {
+        paymentMethod: PaymentMethod;
+    },
+}
 
 export function CoffesContextProvider({children}: CoffesContextProviderProps) {
+    const newDelivery = useForm<CoffeDeliveryFormData>({
+        defaultValues: {
+            deliveryAddress: {
+                cep: '',
+                street: '',
+                numberAddress: '',
+                addressComplement: '',
+                neighborhood: '',
+                city: '',
+                UF: '',
+            },
+            payment: {
+                paymentMethod: '',
+            },
+        }
+    });   
 
-    const [coffes, dispatch] = useReducer((state: CoffesState, action: any) => {
-        if(action.type === 'ADD_COFFE_QUANTITY') {
-            return produce(state, (draft) => {
-                const newDraft = state.coffesAmount.map((coffe) => {{
-                    if(coffe.name === action.payload.coffe.name) {
-                        return {...coffe, quantity: coffe.quantity+1};
-                    }
-                    return coffe;
-                }})
-                draft.coffesAmount = newDraft;
-            })
-        }
-        if(action.type === 'DECREASE_COFFE_QUANTITY') {
-            return produce(state, (draft) => {
-                const newDraft = state.coffesAmount.map((coffe) => {{
-                    if(coffe.name === action.payload.coffe.name && coffe.quantity > 0) {
-                        return {...coffe, quantity: coffe.quantity - 1};
-                    }
-                    return coffe;
-                }})
-                draft.coffesAmount = newDraft;
-            })
-        }
-        if(action.type === 'REMOVE_TOTAL_QUANTITY') {
-            return produce(state, (draft) => {
-                const newDraft = state.coffesAmount.map((coffe) => {{
-                    if(coffe.name === action.payload.coffe.name && coffe.quantity > 0) {
-                        return {...coffe, quantity: 0};
-                    }
-                    return coffe;
-                }})
-                draft.coffesAmount = newDraft;
-            })
-        }
-        return state;
-    }, {
+    const { handleSubmit, watch, reset, register, setValue } = newDelivery;
+
+    const [coffes, dispatch] = useReducer(coffeReducer, {
         coffesAmount: coffesAmountInitial,
         activeCoffe: null
     })
@@ -216,32 +224,26 @@ export function CoffesContextProvider({children}: CoffesContextProviderProps) {
         event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
         coffe: Coffe
     ) {
-        
-        dispatch({
-            type: 'ADD_COFFE_QUANTITY',
-            payload: { coffe }
-        });
+        dispatch(addAmountCoffeAction(coffe));
     }
 
 
-    function decreaseQuantityCoffe(event: React.MouseEvent<HTMLButtonElement, MouseEvent>, coffe: Coffe) {
-        // console.log(coffe);
-        dispatch({
-            type: 'DECREASE_COFFE_QUANTITY',
-            payload: { coffe }
-        });
+    function decreaseQuantityCoffe(
+        event: React.MouseEvent<HTMLButtonElement, MouseEvent>, 
+        coffe: Coffe
+    ) {
+        dispatch(decreaseQuantityCoffeAction(coffe));
     }
 
     function removeCoffe(
         event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
         coffe: Coffe
     ) {
+        dispatch(removeCoffeAction(coffe));
+    }
 
-        // console.log(coffe);
-        dispatch({
-            type: 'REMOVE_TOTAL_QUANTITY',
-            payload: { coffe }
-        });
+    function removeAllCoffe() {
+        dispatch(removeAllCoffeAction());
     }
 
     return(
@@ -249,9 +251,15 @@ export function CoffesContextProvider({children}: CoffesContextProviderProps) {
             value={{ 
                 coffesAmount,
                 activeCoffe,
+                handleSubmit, 
+                watch,
+                reset, 
+                register, 
+                setValue,
                 addAmountCoffe,
                 removeCoffe,
                 decreaseQuantityCoffe,
+                removeAllCoffe,
             }}>
             {children}
         </CoffesContext.Provider>

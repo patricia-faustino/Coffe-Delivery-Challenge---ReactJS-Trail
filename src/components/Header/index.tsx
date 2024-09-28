@@ -1,6 +1,6 @@
 import { ActionsContainer, HeaderContainer } from "./styles";
 import Logo from "../../assets/Logo.svg";
-import { MapPin, ShoppingCart } from "phosphor-react";
+import { MapPin } from "phosphor-react";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { CoffesContext } from "../../contexts/CoffesContext";
@@ -22,8 +22,8 @@ export function Header() {
                     <span>Porto Alegre, RS</span>
                 </div>
                 <nav>
-                    <span>{totalQuantity}</span>
-                    <ShoppingCartLink size={22} backgroundColor={"yellowDark"}/>
+                    {!!totalQuantity && <span>{totalQuantity}</span>}
+                    <ShoppingCartLink size={22} backgroundcolor={"yellowDark"}/>
                 </nav>
             </ActionsContainer>
            

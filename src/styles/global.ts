@@ -22,4 +22,23 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 400;
         font-size: 1rem;
     }
+
+    a, button {
+        border: none;
+        outline: none;
+        text-decoration: none;
+        background: none;
+        box-shadow: none;
+    }
+
+    a:focus, button:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    a:active, button:active {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
 `;

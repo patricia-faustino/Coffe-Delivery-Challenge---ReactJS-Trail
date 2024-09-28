@@ -4,9 +4,14 @@ interface CoffePriceProps extends CoffeQuantityContainerProps {
     coffePrice: number;
 }
 
-export function CoffePrice({coffePrice, fontSize, fontWeigth, fontSizeBefore, fontWeigthBefore}: CoffePriceProps) {
+export function CoffePrice({coffePrice, fontSize, fontWeight, fontsizebefore, fontweigthbefore}: CoffePriceProps) {
     return (
-        <CoffePriceContainer fontSize={fontSize} fontWeigth={fontWeigth} fontSizeBefore={fontSizeBefore} fontWeigthBefore={fontWeigthBefore}>
+        <CoffePriceContainer 
+            fontSize={fontSize} 
+            fontWeight={fontWeight} 
+            fontsizebefore={fontsizebefore} 
+            fontweigthbefore={fontweigthbefore}
+        >
             {coffePrice}
         </CoffePriceContainer>
     );

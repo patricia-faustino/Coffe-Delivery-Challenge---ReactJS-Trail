@@ -89,6 +89,13 @@ export const CoffePriceContainer = styled.div`
         border-radius: 6px;
         width: 2.375rem;
         background-color: ${(props) => props.theme['purple']};
+        a {
+          height: 18px;
+        }
+
+        &:active, &:focus {
+            background-color: ${(props) => props.theme['purple-dark']};
+        }
     }
 
 `;

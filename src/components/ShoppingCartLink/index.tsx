@@ -6,9 +6,9 @@ interface ShoppingCartLinkProps extends StatusProps {
     size: number;
 }
 
-export function ShoppingCartLink({size, backgroundColor}: ShoppingCartLinkProps) {
+export function ShoppingCartLink({size, backgroundcolor}: ShoppingCartLinkProps) {
     return(
-        <ShoppingCartLinkContainer to="/checkout" backgroundColor={backgroundColor} title="Carrinho">
+        <ShoppingCartLinkContainer to="/checkout" backgroundcolor={backgroundcolor} title="Carrinho">
             <ShoppingCart size={size} weight="fill" />
         </ShoppingCartLinkContainer>
     );

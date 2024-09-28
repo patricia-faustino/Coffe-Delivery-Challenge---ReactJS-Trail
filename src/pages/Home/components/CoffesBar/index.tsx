@@ -20,8 +20,8 @@ export function CoffesBar() {
 
                         <CoffeInformationContainer>
                             <TagContainer>
-                                {coffe.tags.map((tag) => (
-                                    <span>{tag}</span>
+                                {coffe.tags.map((tag, index) => (
+                                    <span key={`${tag}-${index}`}>{tag}</span>
                                 ))}
                             </TagContainer>
 
@@ -33,14 +33,14 @@ export function CoffesBar() {
                                 <CoffePrice
                                     coffePrice={coffe.price}
                                     fontSize="24px"
-                                    fontSizeBefore="14px"
-                                    fontWeigth="bold"
-                                    fontWeigthBefore="normal"
+                                    fontsizebefore="14px"
+                                    fontWeight="bold"
+                                    fontweigthbefore="normal"
                                 />
                                 <CoffeCartContainer>
                                     <CoffeQuantity coffe={coffe} height="2rem" />
                                     <nav>
-                                        <ShoppingCartLink size={18} backgroundColor={"white"}/>
+                                        <ShoppingCartLink size={18} backgroundcolor={"white"}/>
                                     </nav>
 
                                 </CoffeCartContainer>

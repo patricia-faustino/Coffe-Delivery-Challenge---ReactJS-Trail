@@ -5,9 +5,9 @@ interface RoundedIconProps extends IconProps, StatusProps {
     IconComponent: React.ElementType;
 }
 
-export function RoundedIcon({color, size, weight,backgroundColor, IconComponent}: RoundedIconProps) {
+export function RoundedIcon({color, size, weight, backgroundcolor, IconComponent}: RoundedIconProps) {
     return( 
-        <IconContainer backgroundColor={backgroundColor}>
+        <IconContainer backgroundcolor={backgroundcolor}>
             <IconComponent color={color} size={size} weight={weight} />
         </IconContainer>
    );

@@ -19,7 +19,7 @@ export function Presentation()  {
                             size={16} 
                             weight="fill"
                             IconComponent={ShoppingCart}
-                            backgroundColor={"yellowDark"}
+                            backgroundcolor={"yellowDark"}
                         />
                         <span>Compra simples e segura</span>
                     </ItemContainer>
@@ -29,7 +29,7 @@ export function Presentation()  {
                             size={16} 
                             weight="fill"
                             IconComponent={Package}
-                            backgroundColor={"baseText"}
+                            backgroundcolor={"baseText"}
                         />
                         <span>Embalagem mantém o café intacto</span>
                     </ItemContainer>
@@ -39,7 +39,7 @@ export function Presentation()  {
                             size={16} 
                             weight="fill"
                             IconComponent={Timer}
-                            backgroundColor={"yellow"}
+                            backgroundcolor={"yellow"}
                         />
                         <span>Entrega rápida e rastreada</span>
                     </ItemContainer>
@@ -49,7 +49,7 @@ export function Presentation()  {
                             size={16} 
                             weight="fill"
                             IconComponent={Coffee}
-                            backgroundColor={"purple"}
+                            backgroundcolor={"purple"}
                         />
                         <span>O café chega fresquinho até você</span>
                     </ItemContainer>
