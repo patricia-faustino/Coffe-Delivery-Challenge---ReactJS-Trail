@@ -54,7 +54,7 @@ interface CoffesContextType extends CoffesState {
 
 export const CoffesContext = createContext({} as CoffesContextType);
 
-const coffesAmountInitial : CoffeAmount[] = [
+export const coffesAmountInitial : CoffeAmount[] = [
     {
         tags:["Tradicional"],
         name: "Expresso Tradicional",

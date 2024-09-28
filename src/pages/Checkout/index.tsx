@@ -8,10 +8,12 @@ import { CheckoutContainer } from "./styles";
 export function Checkout() {
     const {
         handleSubmit,
+        removeAllCoffe
     }= useContext(CoffesContext);
     const navigate = useNavigate();
 
     function handleSubimitDelivery() {
+        removeAllCoffe();
         navigate('/success');
     }
 

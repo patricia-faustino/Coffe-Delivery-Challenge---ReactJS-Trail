@@ -1,5 +1,5 @@
 import { produce } from "immer";
-import { CoffeAmount, Coffe } from "../../contexts/CoffesContext";
+import { CoffeAmount, Coffe, coffesAmountInitial } from "../../contexts/CoffesContext";
 import { CoffeActionTypes } from "./action";
 
 interface CoffesState {
@@ -41,13 +41,7 @@ export function coffeReducer(state: CoffesState, action: any) {
             })
         case(CoffeActionTypes.REMOVE_ALL_COFFE):
             return produce(state, (draft) => {
-                const newDraft = state.coffesAmount.map((coffe) => {{
-                    if(coffe.name === action.payload.coffe.name && coffe.quantity > 0) {
-                        return {...coffe, quantity: 0};
-                    }
-                    return coffe;
-                }})
-                draft.coffesAmount = newDraft;
+                draft.coffesAmount = coffesAmountInitial;
                 draft.activeCoffe = null;
             })
         default:
