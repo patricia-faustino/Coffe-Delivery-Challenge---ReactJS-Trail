@@ -51,22 +51,28 @@
 ## Funcionalidades
 
 - Listagem de Produtos
-A aplicação lista os produtos (cafés) disponíveis para compra. Cada produto possui um nome, descrição, preço e uma imagem.
+
+  A aplicação lista os produtos (cafés) disponíveis para compra. Cada produto possui um nome, descrição, preço e uma imagem.
 
 - Adicionar Itens ao Carrinho
-O usuário pode adicionar uma quantidade específica de itens ao carrinho. A quantidade pode ser ajustada antes de adicionar ao carrinho.
+
+  O usuário pode adicionar uma quantidade específica de itens ao carrinho. A quantidade pode ser ajustada antes de adicionar ao carrinho.
 
 - Aumentar ou Remover Itens do Carrinho
-O usuário pode aumentar ou diminuir a quantidade de itens no carrinho diretamente na listagem do carrinho.
+
+  O usuário pode aumentar ou diminuir a quantidade de itens no carrinho diretamente na listagem do carrinho.
 
 - Formulário de Endereço
-O usuário deve preencher um formulário com seu endereço para finalizar a compra. O formulário inclui campos como rua, número, cidade, estado, etc.
+
+  O usuário deve preencher um formulário com seu endereço para finalizar a compra. O formulário inclui campos como rua, número, cidade, estado, etc.
 
 - Exibir Total de Itens no Header
-O total de itens no carrinho é exibido no Header da aplicação, permitindo que o usuário veja quantos itens estão no carrinho a qualquer momento.
+
+  O total de itens no carrinho é exibido no Header da aplicação, permitindo que o usuário veja quantos itens estão no carrinho a qualquer momento.
 
 - Exibir Valor Total do Carrinho
-O valor total do carrinho é calculado somando os preços dos itens multiplicados pela quantidade de cada item. Esse valor é exibido na página de checkout.
+
+  O valor total do carrinho é calculado somando os preços dos itens multiplicados pela quantidade de cada item. Esse valor é exibido na página de checkout.
 
 
 ## Conceitos Utilizados:
