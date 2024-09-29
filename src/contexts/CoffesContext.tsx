@@ -1,5 +1,5 @@
 import { createContext, 
-    ReactNode, useReducer } from "react";
+    ReactNode, useEffect, useReducer } from "react";
 import ExpressoTradicional from '../assets/expresso.svg';
 import ExpressoAmericano from '../assets/expresso_americano.svg';
 import ExpressoCremoso from '../assets/expresso_cremoso.svg';
@@ -216,9 +216,22 @@ export function CoffesContextProvider({children}: CoffesContextProviderProps) {
     const [coffes, dispatch] = useReducer(coffeReducer, {
         coffesAmount: coffesAmountInitial,
         activeCoffe: null
-    })
+    },(initialState) => {
+        const storedStateAsJSON = localStorage.getItem('@ignite-coffe-delivery:coffes-state-1.0.0');
+
+        if(storedStateAsJSON) {
+            return JSON.parse(storedStateAsJSON);
+        }
+        return initialState;
+    });
 
     const { coffesAmount, activeCoffe } = coffes;
+
+    useEffect(() => {
+        const stateJson = JSON.stringify(coffes);
+        localStorage.setItem('@ignite-coffe-delivery:coffes-state-1.0.0', stateJson);
+
+    }, [coffesAmount])
 
     function addAmountCoffe(
         event:React.MouseEvent<HTMLButtonElement, MouseEvent>, 
