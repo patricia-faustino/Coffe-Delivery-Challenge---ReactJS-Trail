@@ -12,7 +12,7 @@ export function Header() {
     
     return(
         <HeaderContainer>
-            <NavLink to="/" title="Carrinho">
+            <NavLink to="/" >
                 <img src={Logo} alt="" />
             </NavLink>
 
@@ -26,7 +26,6 @@ export function Header() {
                     <ShoppingCartLink size={22} backgroundcolor={"yellowDark"}/>
                 </nav>
             </ActionsContainer>
-           
         </HeaderContainer>
     )
 }

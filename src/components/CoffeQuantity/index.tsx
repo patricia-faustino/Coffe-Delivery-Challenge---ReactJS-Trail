@@ -12,11 +12,11 @@ export function CoffeQuantity({coffe, height}: CoffeQuantityProps) {
 
     return (
         <CoffeQuantityContainer height={height}>
-            <button onClick={() => decreaseQuantityCoffe(coffe)}>
+            <button type="button" onClick={(e) => decreaseQuantityCoffe(e, coffe)}>
                 <span>-</span>
             </button>
             <span className='coffeQuantity'>{coffe.quantity}</span>
-            <button onClick={() => addAmountCoffe(coffe)}>
+            <button type="button" onClick={(e) => addAmountCoffe(e, coffe)}>
                 <span>+</span>
             </button>
         </CoffeQuantityContainer>

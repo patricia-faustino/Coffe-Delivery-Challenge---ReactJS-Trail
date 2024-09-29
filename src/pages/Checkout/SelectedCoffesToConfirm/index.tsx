@@ -34,7 +34,7 @@ export function SelectedCoffesToConfirm() {
                                             <span>{coffe.name}</span>
                                             <div className="quantity">
                                                 <CoffeQuantity coffe={coffe} height={'2rem'}/>
-                                                <button className="button_remove" onClick={() => removeCoffe(coffe)}>
+                                                <button type="button" className="button_remove" onClick={(e) => removeCoffe(e, coffe)}>
                                                     <Trash size={16}/>
                                                     <span>REMOVER</span>
                                                 </button>

@@ -46,9 +46,9 @@ interface CoffesContextType extends CoffesState {
     reset: UseFormReset<CoffeDeliveryFormData>;
     register: UseFormRegister<CoffeDeliveryFormData>;
     setValue: UseFormSetValue<CoffeDeliveryFormData>;
-    addAmountCoffe: (coffe: Coffe) => void;
-    removeCoffe: (coffe: Coffe) => void;
-    decreaseQuantityCoffe: (coffe: Coffe) => void;
+    addAmountCoffe: (event:React.MouseEvent<HTMLButtonElement, MouseEvent>, coffe: Coffe) => void;
+    removeCoffe: (event:React.MouseEvent<HTMLButtonElement, MouseEvent>, coffe: Coffe) => void;
+    decreaseQuantityCoffe: (event:React.MouseEvent<HTMLButtonElement, MouseEvent>, coffe: Coffe) => void;
     removeAllCoffe: () => void;
 }
 
@@ -221,6 +221,7 @@ export function CoffesContextProvider({children}: CoffesContextProviderProps) {
     const { coffesAmount, activeCoffe } = coffes;
 
     function addAmountCoffe(
+        event:React.MouseEvent<HTMLButtonElement, MouseEvent>, 
         coffe: Coffe
     ) {
         dispatch(addAmountCoffeAction(coffe));
@@ -228,14 +229,20 @@ export function CoffesContextProvider({children}: CoffesContextProviderProps) {
 
 
     function decreaseQuantityCoffe(
+        event:React.MouseEvent<HTMLButtonElement, MouseEvent>, 
         coffe: Coffe
     ) {
+        event.preventDefault();
+        event.stopPropagation();
         dispatch(decreaseQuantityCoffeAction(coffe));
     }
 
     function removeCoffe(
+        event:React.MouseEvent<HTMLButtonElement, MouseEvent>, 
         coffe: Coffe
     ) {
+        event.preventDefault();
+        event.stopPropagation();
         dispatch(removeCoffeAction(coffe));
     }
 

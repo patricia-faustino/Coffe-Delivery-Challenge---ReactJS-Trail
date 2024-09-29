@@ -6,6 +6,7 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
 
     height: 6.5rem;
+    min-width: 100vw;
 `;
 
 export const ActionsContainer = styled.div`
