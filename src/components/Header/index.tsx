@@ -15,7 +15,6 @@ export function Header() {
             <NavLink to="/" >
                 <img src={Logo} alt="" />
             </NavLink>
-
             <ActionsContainer>
                 <div className="location">
                     <MapPin size={22} weight="fill"/>
