@@ -683,7 +683,7 @@ Error generating stack: `+o.message+`
     max-width: 100vw;
     height: calc(100vh - 10rem);
     padding: 0 10rem;
-`;function j2(){return v.jsxs(_2,{children:[v.jsx(C2,{}),v.jsx(tv,{})]})}function P2(){return v.jsx(rv,{children:v.jsxs(di,{path:"",element:v.jsx(j2,{}),children:[v.jsx(di,{path:"",element:v.jsx(Qk,{})}),v.jsx(di,{path:"/checkout",element:v.jsx(f2,{})}),v.jsx(di,{path:"/success",element:v.jsx(E2,{})})]})})}const F2={white:"#FFFFFF","yellow-dark":"#C47F17",yellow:"#DBAC2C","yellow-light":"#F1E9C9","purple-dark":"#4B2995",purple:"#8047F8","purple-light":"#EBE5F9","base-title":"#272221","base-subtitle":"#403937","base-text":"#574F4D","base-label":"#8D8686","base-hover":"#D7D5D5","base-button":"#E6E5E5","base-input":"#EDEDED","base-card":"#F3F2F2",background:"#FAFAFA"},N2=pg`
+`;function j2(){return v.jsxs(_2,{children:[v.jsx(C2,{}),v.jsx(tv,{})]})}function P2(){return v.jsx(rv,{children:v.jsxs(di,{path:"/",element:v.jsx(j2,{}),children:[v.jsx(di,{path:"/",element:v.jsx(Qk,{})}),v.jsx(di,{path:"/checkout",element:v.jsx(f2,{})}),v.jsx(di,{path:"/success",element:v.jsx(E2,{})})]})})}const F2={white:"#FFFFFF","yellow-dark":"#C47F17",yellow:"#DBAC2C","yellow-light":"#F1E9C9","purple-dark":"#4B2995",purple:"#8047F8","purple-light":"#EBE5F9","base-title":"#272221","base-subtitle":"#403937","base-text":"#574F4D","base-label":"#8D8686","base-hover":"#D7D5D5","base-button":"#E6E5E5","base-input":"#EDEDED","base-card":"#F3F2F2",background:"#FAFAFA"},N2=pg`
     *{
         margin: 0;
         padding: 0;
@@ -724,4 +724,4 @@ Error generating stack: `+o.message+`
         outline: none;
         box-shadow: none;
     }
-`;function A2(){return v.jsxs(cg,{theme:F2,children:[v.jsx(dv,{children:v.jsx(wk,{children:v.jsx(P2,{})})}),v.jsx(N2,{})]})}Lh(document.getElementById("root")).render(v.jsx(j.StrictMode,{children:v.jsx(A2,{})}));
+`;function A2(){return v.jsxs(cg,{theme:F2,children:[v.jsx(dv,{basename:"/coffe-delivery",children:v.jsx(wk,{children:v.jsx(P2,{})})}),v.jsx(N2,{})]})}Lh(document.getElementById("root")).render(v.jsx(j.StrictMode,{children:v.jsx(A2,{})}));
