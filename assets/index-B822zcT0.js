@@ -635,7 +635,7 @@ Error generating stack: `+o.message+`
     justify-content: space-between;
 
     height: 6.5rem;
-    min-width: 100vw;
+    min-width: calc(100vw - 20rem);
 `,L2=V.div`
     display: flex;
     justify-content: space-between;
