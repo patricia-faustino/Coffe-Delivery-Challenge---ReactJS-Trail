@@ -9,7 +9,7 @@ function App() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <BrowserRouter>
+      <BrowserRouter  basename="/coffe-delivery">
         <CoffesContextProvider>
           <Router />
         </CoffesContextProvider>
