@@ -76,7 +76,6 @@
 
 
 ## Conceitos Utilizados:
-conceitos como:
 
 - Estados
 - ContextAPI
